@@ -5,7 +5,7 @@
     "Dmitri <d@eurekaking.com>"
   ],
   "description": "Rewrite for browser :active touch and click states for links (to make your website feel like an app)",
-  "main": "_touch.js",
+  "main": "touch.js",
   "dependencies": {
     "__q": "git@github.com:dmitrizzle/__q"
   },
