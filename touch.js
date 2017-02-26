@@ -12,14 +12,14 @@ var touchRespond = {
 
 	// remove all other active states on the document
 	reset: function(){
-		__q('a').forEach(function(el) {
+		__each(__q("a"), function(el) {
 				el.classList.remove("-active");
 		});
 	},
 	
 	// add events to all elements on page
 	init: function(){
-		__q('a').forEach(function(el) {
+		__each(__q("a"), function(el) {
 		
 			var pointerDown = false;
 			var activeAvailable = true;
