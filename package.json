@@ -1,0 +1,25 @@
+{
+  "name": "active-touch",
+  "version": "1.2.0",
+  "description": "Rewrite for browser :active touch and click states for links (to make your website feel like an app)",
+  "main": "touch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmitrizzle/active-touch.git"
+  },
+  "keywords": [
+    "touch",
+    "interaction",
+    "styles",
+    "javascript"
+  ],
+  "author": "dmitrizzle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dmitrizzle/active-touch/issues"
+  },
+  "homepage": "https://github.com/dmitrizzle/active-touch#readme"
+}
