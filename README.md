@@ -1,9 +1,18 @@
 # active-touch
-### Rewrite for browser :active touch and click states for links (to make your website feel like an app)
+### A solution for :active CSS problem on iOS devices
 
-Here's what this thing does. CSS `:active` state for touch devices and even for good 'ol laptops is kind of ugly by default. This extremely lightweight JS file fixes that issue. Basically, every link that's clicked (has to be an anchor, `<a></a>`) gets an `-active` class when clicked or touched. That class presists unless another link is clicked, or if user scrolled or did any other action associated with cancelling the "click" or "tap". You can have a look at the guts; this has been developed with an assumption user is expecting the same kind of behaviour from the web app as from any native app.
+There are 3 problems with how iOS treats CSS `:active` state:
+1. By default it's ignored, instead `-webkit-tap-highlight-color` is used
+1. You can overwrite above with your own CSS but it doesn't give you any actual control over style except the color itself (and it behaves awfully, compared to the way you'd expect it to)
+1. You can try to use hacks like `<body ontouchstart>` but it won't place that nice. If you touch and hold your link and scroll your page, it'll be highlighted. This looks awful if you have a list of large buttons that you need to scroll. For user it'll feel confusing as they will see an immediate downstate for their button/link which will not cancel even if they scroll (downstates are expected to cancel when users scroll pages or move cursor away from the button)
 
-The reason `-active` presists is because the user needs to see that what they have clicked is active, until the next view loads. If you want to clear all active links, just call `touchRespond.reset()` once the action has been completed.
+### Why owuld you want to mess with :active state anyway?
+Even if you have super-fast single-page application, users still want feedback when they click your links and buttons, in fact there needs to be two states:
+1. User pressed the button - immediately the style changes
+1. User lifted her finger or released mouse button - the styles changes again either to "activated (I'm here)" or back to original
 
-## Why
-The user gets a solid feel that their click or touch has activated something and it's working, unless they cancel the function (by clicking elsewhere, or you can set your own timeout). Default browser behaviour *might* just indicate that something on the page has been interacted with, but not whether it's actually active (as `:active` flag should really indicate).
+## How does this work
+This library solves the issues within one of the most popular mobile browser (iOS Safari) by adding `--active` class for every link and button on the page as soon as the user touches the button. If the user scrolls or moves the finger away, class is removed. If the user lifts his finger/releases mouse button the class is removed. 🎉
+
+### Installation 
+Soon.
