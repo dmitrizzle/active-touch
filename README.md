@@ -1,4 +1,4 @@
-# active-touch
+# active-touch ☝️
 ### A solution for :active CSS problem on iOS devices
 
 There are 3 problems with how iOS treats CSS `:active` state:
