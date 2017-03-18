@@ -17,21 +17,21 @@ Even if you have super-fast single-page application, users still want **INSTANT*
 For example, if a user presses a white button (immediately it turns dark) and releases it (it may remain dark) some page loads and the button turns blue to indicate that she is on the page that corresponds to that button.
 
 ## How does this work
-This library solves the issues within one of the most popular mobile browser (iOS Safari) [as well many others] by adding `--active` class for every `<a>` tag on the page as soon as the user touches them. If the user scrolls or moves the finger away, class is removed. If the user lifts his finger/releases mouse button the `--active` class remains. This part you can control by calling `activeTouch.reset()` - which will remove that class. 🎉
+This library solves the issues within one of the most popular mobile browser (iOS Safari) [as well many others] by adding `active` class for every `<a>` tag on the page as soon as the user touches them. If the user scrolls or moves the finger away, class is removed. If the user lifts his finger/releases mouse button the `active` class remains. This part you can control by calling `activeTouch.reset()` - which will remove that class. 🎉
 
 ### Installation (NPM):
 Will add to NPM soon, for now just reference this repo in your package.json like so:
 `npm install --save dmitrizzle/active-touch`
 
-### API
+### API (how to use this thing):
 For ES6 projects with Babel:
 
 ```javascript
 
 import { activeTouch } from "active-touch"
 
-activeTouch.reset() // call this function every time you need to remove all `--active` classes (like when new page is loaded)
-activeTouch.init()  // init the touch/click listener functions
+activeTouch.reset() // call this function every time you need to remove all `active` classes (like when new page is loaded)
+activeTouch.init()	// init the touch/click listener functions
 
 ```
 
@@ -60,7 +60,7 @@ if(typeof ES6test == "undefined"){
 	})(this, function (_index) {
 		"use strict";
 		
-		// call this function every time you need to remove all `--active` classes (like when new page is loaded)
+		// call this function every time you need to remove all `active` classes (like when new page is loaded)
 		_index.activeTouch.reset(); 
 		
 		// init the touch/click listener functions
@@ -69,3 +69,20 @@ if(typeof ES6test == "undefined"){
 	});
 }
 ```
+
+### React.js
+If you are using React, activeTouch should be called once everything has rendered inside your component, with `compoentDidMount()` like so:
+```javascript
+class App extends React.Component {
+	componentDidMount() {
+      activeTouch.reset()
+	 		activeTouch.init()
+  }
+  render() {
+		return ( <div><a href="#">link</a></div> )
+	}
+}
+```
+
+## Don't forget:
+Create your own `.active{}` CSS style, for example: `.active { background: green }`

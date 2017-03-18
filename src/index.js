@@ -1,4 +1,4 @@
-// REWRITE TOUCH AND CLICK ACTIVE STATES FOR ".--active" CSS class
+// REWRITE TOUCH AND CLICK ACTIVE STATES FOR ".active" CSS class
 export const activeTouch = {
 	// sensitivity settings
 	options: {
@@ -9,7 +9,7 @@ export const activeTouch = {
 
 	// remove all other active states on the document
 	reset: function(){
-		for (var el of document.querySelectorAll(this.options.selectors[0])) el.classList.remove("--active")
+		for (var el of document.querySelectorAll(this.options.selectors[0])) el.classList.remove("active")
 	},
 	
 	// add events to all elements on page
@@ -25,8 +25,8 @@ export const activeTouch = {
 			let slack = 						this.options.slack
 						
 			// add/remove active classes
-			const activate = (el) 	=> el.classList.add("--active")
-			const deactivate = (el) => { el.classList.remove("--active"); activeAvailable = false }
+			const activate = (el) 	=> el.classList.add("active")
+			const deactivate = (el) => { el.classList.remove("active"); activeAvailable = false }
 		
 		
 			// allow dragging and still keeping element active for [slack] pixels
