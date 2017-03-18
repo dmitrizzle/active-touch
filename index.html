@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>active-touch ☝️</title>
     <style type="text/css">
-    	.active {
+    	.custom {
     		background: #2c2c2c;
 				color: #fff;
     	}
@@ -101,10 +101,10 @@
 					"use strict";
 					
 					// call this function every time you need to remove all `--active` classes (like when new page is loaded)
-					_index.activeTouch.reset(); 
+					_index.activeTouch.reset("custom"); 
 					
 					// init the touch/click listener functions
-					_index.activeTouch.init();
+					_index.activeTouch.init("custom");
 
 				});
 			}

@@ -26,6 +26,7 @@
 
 		// remove all other active states on the document
 		reset: function reset() {
+			var activeClass = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "active";
 			var _iteratorNormalCompletion = true;
 			var _didIteratorError = false;
 			var _iteratorError = undefined;
@@ -33,7 +34,7 @@
 			try {
 				for (var _iterator = document.querySelectorAll(this.options.selectors[0])[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 					var el = _step.value;
-					el.classList.remove("active");
+					el.classList.remove(activeClass);
 				}
 			} catch (err) {
 				_didIteratorError = true;
@@ -55,6 +56,7 @@
 		init: function init() {
 			var _this = this;
 
+			var activeClass = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "active";
 			var _iteratorNormalCompletion2 = true;
 			var _didIteratorError2 = false;
 			var _iteratorError2 = undefined;
@@ -74,10 +76,10 @@
 
 					// add/remove active classes
 					var activate = function activate(el) {
-						return el.classList.add("active");
+						return el.classList.add(activeClass);
 					};
 					var deactivate = function deactivate(el) {
-						el.classList.remove("active");activeAvailable = false;
+						el.classList.remove(activeClass);activeAvailable = false;
 					};
 
 					// allow dragging and still keeping element active for [slack] pixels

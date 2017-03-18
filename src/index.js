@@ -8,12 +8,12 @@ export const activeTouch = {
 	},
 
 	// remove all other active states on the document
-	reset: function(){
-		for (var el of document.querySelectorAll(this.options.selectors[0])) el.classList.remove("active")
+	reset: function(activeClass = "active"){
+		for (var el of document.querySelectorAll(this.options.selectors[0])) el.classList.remove(activeClass)
 	},
 	
 	// add events to all elements on page
-	init: function(){
+	init: function(activeClass = "active"){
 		for (var el of document.querySelectorAll(this.options.selectors)) {
 			let pointerDown = 			false
 			let activeAvailable = 	true
@@ -25,8 +25,8 @@ export const activeTouch = {
 			let slack = 						this.options.slack
 						
 			// add/remove active classes
-			const activate = (el) 	=> el.classList.add("active")
-			const deactivate = (el) => { el.classList.remove("active"); activeAvailable = false }
+			const activate = (el) 	=> el.classList.add(activeClass)
+			const deactivate = (el) => { el.classList.remove(activeClass); activeAvailable = false }
 		
 		
 			// allow dragging and still keeping element active for [slack] pixels
