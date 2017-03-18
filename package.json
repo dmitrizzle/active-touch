@@ -2,9 +2,12 @@
   "name": "active-touch",
   "version": "1.3.0",
   "description": "A solution for :active CSS problem on iOS devices",
-  "main": "touch.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
+  },
+  "babel": {
+    "presets": ["es2015"]
   },
   "repository": {
     "type": "git",
