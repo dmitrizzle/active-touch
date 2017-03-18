@@ -16,7 +16,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	// REWRITE TOUCH AND CLICK ACTIVE STATES FOR ".--active" CSS class
+	// REWRITE TOUCH AND CLICK ACTIVE STATES FOR ".active" CSS class
 	var activeTouch = exports.activeTouch = {
 		// sensitivity settings
 		options: {
@@ -33,7 +33,7 @@
 			try {
 				for (var _iterator = document.querySelectorAll(this.options.selectors[0])[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 					var el = _step.value;
-					el.classList.remove("--active");
+					el.classList.remove("active");
 				}
 			} catch (err) {
 				_didIteratorError = true;
@@ -74,10 +74,10 @@
 
 					// add/remove active classes
 					var activate = function activate(el) {
-						return el.classList.add("--active");
+						return el.classList.add("active");
 					};
 					var deactivate = function deactivate(el) {
-						el.classList.remove("--active");activeAvailable = false;
+						el.classList.remove("active");activeAvailable = false;
 					};
 
 					// allow dragging and still keeping element active for [slack] pixels
