@@ -1,7 +1,7 @@
 {
   "name": "active-touch",
-  "version": "1.2.0",
-  "description": "Rewrite for browser :active touch and click states for links (to make your website feel like an app)",
+  "version": "1.3.0",
+  "description": "A solution for :active CSS problem on iOS devices",
   "main": "touch.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/dmitrizzle/active-touch/issues"
   },
-  "homepage": "https://github.com/dmitrizzle/active-touch#readme"
+  "homepage": "https://github.com/dmitrizzle/active-touch#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-preset-es2015": "^6.24.0"
+  }
 }
