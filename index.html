@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>active-touch ☝️</title>
+    <style type="text/css">
+    	.\-\-active {
+    		background: #2c2c2c;
+				color: #fff;
+    	}
+    </style>
+  </head>
+  <body>
+    <main>
+    	<ul>
+    		<li><a href="#">Holding mouse or finger down on this link should have <em>--active</em> class added to it.</a></li>
+    		<li><a href="#">Releasing finger or mouse button should instantly remove <em>--active</em> class.</a></li>
+    		<li><a href="#">Holding down finger and scrolling the page should not have <em>--active</em> class added to this link.</a></li>
+    		<li><a href="#">Holding down finger or mouse and dragging it outside the boundaries of this link should not have <em>--active</em> class added to this link.</a></li>
+    		<li><a href="#" class="--active">This link initially has <em>--active</em> class but it should be cleaned as soon as JS initializes.</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+    		<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+				<li><a href="#">One more link</a></li>
+    	</ul>
+    </main>
+    <script src="./build/bundle.js"></script>
+    <script>
+    	if(typeof ES6test == "undefined"){
+				(function (global, factory) {
+					if (typeof define === "function" && define.amd) {
+						define(["./index.js"], factory);
+					} else if (typeof exports !== "undefined") {
+						factory(require("./index.js"));
+					} else {
+						var mod = {
+							exports: {}
+						};
+						factory(global.index);
+						global.test = mod.exports;
+					}
+				})(this, function (_index) {
+					"use strict";
+					
+					// call this function every time you need to remove all `--active` classes (like when new page is loaded)
+					_index.activeTouch.reset(); 
+					
+					// init the touch/click listener functions
+					_index.activeTouch.init();
+
+				});
+			}
+    </script>
+  </body>
+</html>
