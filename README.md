@@ -2,6 +2,7 @@
 ### A solution for :active CSS problem on iOS devices
 
 There are 3 problems with how iOS treats CSS `:active` state:
+
 1. By default it's ignored, instead `-webkit-tap-highlight-color` is used.
 1. You can overwrite above with your own CSS but it doesn't give you any actual control over style except the color itself (and it behaves awfully).
 1. You can try to use hacks like `<body ontouchstart>` but it won't fix everything:
@@ -68,6 +69,7 @@ if(typeof ES6test == "undefined"){
 	});
 }
 ```
+
 ### React.js
 If you are using React, activeTouch should be called once everything has rendered inside your component, with `compoentDidMount()` like so:
 ```javascript
@@ -84,4 +86,3 @@ class App extends React.Component {
 
 ## Don't forget:
 Create your own `.active{}` CSS style, for example: `.active { background: green }`
-
