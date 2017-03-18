@@ -34,8 +34,9 @@ activeTouch.reset() // call this function every time you need to remove all `act
 activeTouch.init()	// init the touch/click listener functions
 
 ```
+You can also pass custom class names like so: `activeTouch.init("custom-class");activeTouch.reset("custom-class")`
 
-Projects that don't use Babel and/or NPM can do this:
+**Projects that don't use Babel and/or NPM can do this:**
 
 In your HTML file, import the compiled JS:
 ```html
