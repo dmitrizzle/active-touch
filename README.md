@@ -31,7 +31,7 @@ For ES6 projects with Babel:
 import { activeTouch } from "active-touch"
 
 activeTouch.reset() // call this function every time you need to remove all `--active` classes (like when new page is loaded)
-activeTouch.init()	// init the touch/click listener functions
+activeTouch.init()  // init the touch/click listener functions
 
 ```
 
