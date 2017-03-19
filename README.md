@@ -20,8 +20,7 @@ For example, if a user presses a white button (immediately it turns dark) and re
 This library solves the issues within one of the most popular mobile browser (iOS Safari) [as well many others] by adding `active` class for every `<a>` tag on the page as soon as the user touches them. If the user scrolls or moves the finger away, class is removed. If the user lifts his finger/releases mouse button the `active` class remains. This part you can control by calling `activeTouch.reset()` - which will remove that class. 🎉
 
 ### Installation (NPM):
-Will add to NPM soon, for now just reference this repo in your package.json like so:
-`npm install --save dmitrizzle/active-touch`
+`npm install --save active-touch`
 
 ### API (how to use this thing):
 For ES6 projects with Babel:
