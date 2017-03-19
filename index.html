@@ -19,7 +19,7 @@
     		<li><a href="#">Holding down finger and scrolling the page should not have <em>--active</em> class added to this link.</a></li>
     		<li><a href="#">Holding down finger or mouse and dragging it outside the boundaries of this link should not have <em>--active</em> class added to this link.</a></li>
     		<li><a href="#" class="--active">This link initially has <em>--active</em> class but it should be cleaned as soon as JS initializes.</a></li>
-    		<li><a href="#">One more link</a></li>
+    		<li><span class="also">This is not a link, but it could also have the same action assigned via css selector mention</span></li>
     		<li><a href="#">One more link</a></li>
     		<li><a href="#">One more link</a></li>
     		<li><a href="#">One more link</a></li>
@@ -100,11 +100,11 @@
 				})(this, function (_index) {
 					"use strict";
 					
-					// call this function every time you need to remove all `--active` classes (like when new page is loaded)
-					_index.activeTouch.reset("custom"); 
-					
 					// init the touch/click listener functions
-					_index.activeTouch.init("custom");
+					_index.activeTouch.init({ cssclass: "custom", selectors: ["a", ".also"] });
+					
+					// call this function every time you need to remove all `--active` classes (like when new page is loaded)
+					_index.activeTouch.reset(); 
 
 				});
 			}

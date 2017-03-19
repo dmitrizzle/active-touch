@@ -34,9 +34,35 @@ activeTouch.reset() // call this function every time you need to remove all `act
 activeTouch.init()	// init the touch/click listener functions
 
 ```
-You can also pass custom class names like so: `activeTouch.init("custom-class");activeTouch.reset("custom-class")`
+By default **active-touch** iterates through all anchor (link) elements on the page and toggles class "active". You can change that behaviour when you initialize:
 
-**Projects that don't use Babel and/or NPM can do this:**
+```javascript
+activeTouch.init({
+	cssclass: "custom-class",
+	selectors: ["a", "button", ".another-selector"]
+})
+```
+^^ Now, `.custom-class` will be toggled on link (`<a></a>`), button (`<button/>`) and all elements with css class `another-selector` that the user presses their finger/mouse button.
+
+## Don't forget:
+Create your own `.active{}` CSS style, for example: `.active { background: green }`
+
+### React.js
+If you are using React, activeTouch should be called once everything has rendered inside your component, with `compoentDidMount()` like so:
+```javascript
+class App extends React.Component {
+	componentDidMount() {
+      activeTouch.reset()
+	 		activeTouch.init()
+  }
+  render() {
+		return ( <div><a href="#">link</a></div> )
+	}
+}
+```
+
+
+### Projects that don't use Babel or any build tools can do this:
 
 In your HTML file, import the compiled JS:
 ```html
@@ -60,30 +86,10 @@ if(typeof ES6test == "undefined"){
 		}
 	})(this, function (_index) {
 		"use strict";
-		
-		// call this function every time you need to remove all `active` classes (like when new page is loaded)
-		_index.activeTouch.reset(); 
-		
+				
 		// init the touch/click listener functions
 		_index.activeTouch.init();
 
 	});
 }
 ```
-
-### React.js
-If you are using React, activeTouch should be called once everything has rendered inside your component, with `compoentDidMount()` like so:
-```javascript
-class App extends React.Component {
-	componentDidMount() {
-      activeTouch.reset()
-	 		activeTouch.init()
-  }
-  render() {
-		return ( <div><a href="#">link</a></div> )
-	}
-}
-```
-
-## Don't forget:
-Create your own `.active{}` CSS style, for example: `.active { background: green }`

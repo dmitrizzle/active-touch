@@ -16,25 +16,33 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+		return typeof obj;
+	} : function (obj) {
+		return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+	};
+
 	// REWRITE TOUCH AND CLICK ACTIVE STATES FOR ".active" CSS class
 	var activeTouch = exports.activeTouch = {
 		// sensitivity settings
 		options: {
 			touchMoveDelay: 200, // wait this many ms to see if the user is about to scroll or tap the element
 			slack: 35, // allow dragging this many px before deactivating the element state
-			selectors: ["a"] },
+			selectors: ["a"], // CSS selectors affected by this script
+			cssclass: "active" },
 
 		// remove all other active states on the document
 		reset: function reset() {
-			var activeClass = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "active";
+			var opto = this.options;
 			var _iteratorNormalCompletion = true;
 			var _didIteratorError = false;
 			var _iteratorError = undefined;
 
 			try {
-				for (var _iterator = document.querySelectorAll(this.options.selectors[0])[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+				for (var _iterator = document.querySelectorAll(opto.selectors)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 					var el = _step.value;
-					el.classList.remove(activeClass);
+					el.classList.remove(opto.cssclass);
 				}
 			} catch (err) {
 				_didIteratorError = true;
@@ -53,17 +61,23 @@
 		},
 
 		// add events to all elements on page
-		init: function init() {
+		init: function init(options) {
 			var _this = this;
 
-			var activeClass = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "active";
+			// changes could be checked and applied
+			if ((typeof options === "undefined" ? "undefined" : _typeof(options)) === "object") {
+				typeof options.cssclass === "string" ? this.options.cssclass = options.cssclass : null;
+				options.selectors.constructor === Array ? this.options.selectors = options.selectors : null;
+			} else throw Error("Wrong variable type passed as options. It needs to be an object in a form of { cssclass: 'value', selectors: ['value','..'] }");
+			var opto = this.options;
+
 			var _iteratorNormalCompletion2 = true;
 			var _didIteratorError2 = false;
 			var _iteratorError2 = undefined;
 
 			try {
 				var _loop = function _loop() {
-					el = _step2.value;
+					var el = _step2.value;
 
 					var pointerDown = false;
 					var activeAvailable = true;
@@ -71,15 +85,15 @@
 					var pointerLocLast = {};
 					var touchMoveTimer = -1;
 
-					var touchMoveDelay = _this.options.touchMoveDelay;
-					var slack = _this.options.slack;
+					var touchMoveDelay = opto.touchMoveDelay;
+					var slack = opto.slack;
 
 					// add/remove active classes
 					var activate = function activate(el) {
-						return el.classList.add(activeClass);
+						return el.classList.add(opto.cssclass);
 					};
 					var deactivate = function deactivate(el) {
-						el.classList.remove(activeClass);activeAvailable = false;
+						el.classList.remove(opto.cssclass);activeAvailable = false;
 					};
 
 					// allow dragging and still keeping element active for [slack] pixels
@@ -165,9 +179,7 @@
 					});
 				};
 
-				for (var _iterator2 = document.querySelectorAll(this.options.selectors)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-					var el;
-
+				for (var _iterator2 = document.querySelectorAll(opto.selectors)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 					_loop();
 				}
 			} catch (err) {

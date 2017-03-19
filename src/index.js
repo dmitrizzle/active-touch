@@ -5,28 +5,38 @@ export const activeTouch = {
 		touchMoveDelay: 200,			// wait this many ms to see if the user is about to scroll or tap the element
 		slack: 					35,				// allow dragging this many px before deactivating the element state
 		selectors: 			["a"],		// CSS selectors affected by this script
+		cssclass:				"active",	// default css class for active elements
 	},
 
 	// remove all other active states on the document
-	reset: function(activeClass = "active"){
-		for (var el of document.querySelectorAll(this.options.selectors[0])) el.classList.remove(activeClass)
+	reset: function(){
+		let opto = this.options
+		for (let el of document.querySelectorAll(opto.selectors)) el.classList.remove(opto.cssclass)
 	},
 	
 	// add events to all elements on page
-	init: function(activeClass = "active"){
-		for (var el of document.querySelectorAll(this.options.selectors)) {
+	init: function(options){
+		// changes could be checked and applied
+		if(typeof options === "object"){
+			typeof options.cssclass === "string" ? this.options.cssclass = options.cssclass : null
+			options.selectors.constructor === Array ? this.options.selectors = options.selectors : null
+		} else 
+			throw Error("Wrong variable type passed as options. It needs to be an object in a form of { cssclass: 'value', selectors: ['value','..'] }");
+		let opto = this.options
+				
+		for (let el of document.querySelectorAll(opto.selectors)) {
 			let pointerDown = 			false
 			let activeAvailable = 	true
 			let pointerLocFirst = 	{}
 			let pointerLocLast = 		{}
 			let touchMoveTimer = 		-1
 		
-			let touchMoveDelay = 		this.options.touchMoveDelay
-			let slack = 						this.options.slack
+			let touchMoveDelay = 		opto.touchMoveDelay
+			let slack = 						opto.slack
 						
 			// add/remove active classes
-			const activate = (el) 	=> el.classList.add(activeClass)
-			const deactivate = (el) => { el.classList.remove(activeClass); activeAvailable = false }
+			const activate = (el) 	=> el.classList.add(opto.cssclass)
+			const deactivate = (el) => { el.classList.remove(opto.cssclass); activeAvailable = false }
 		
 		
 			// allow dragging and still keeping element active for [slack] pixels
