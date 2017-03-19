@@ -19,7 +19,7 @@ export const activeTouch = {
 		// changes could be checked and applied
 		if(typeof options === "object"){
 			typeof options.cssclass === "string" ? this.options.cssclass = options.cssclass : null
-			options.selectors.constructor === Array ? this.options.selectors = options.selectors : null
+			typeof options.selectors !== "undefined" && options.selectors.constructor === Array ? this.options.selectors = options.selectors : null
 		} else 
 			throw Error("Wrong variable type passed as options. It needs to be an object in a form of { cssclass: 'value', selectors: ['value','..'] }");
 		let opto = this.options
