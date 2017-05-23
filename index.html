@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>active-touch ☝️</title>
     <style type="text/css">
-    	.custom {
+    	.downstate {
     		background: #2c2c2c;
 				color: #fff;
+    	}
+    	a {
+    		-webkit-tap-highlight-color: rgba(0,0,0,0);
     	}
     </style>
   </head>
@@ -101,7 +104,7 @@
 					"use strict";
 					
 					// init the touch/click listener functions
-					_index.activeTouch.init({ cssclass: "custom", selectors: ["a", ".also"] });
+					_index.activeTouch.init({ cssclass: "downstate", selectors: ["a", ".also"] });
 					
 					// call this function every time you need to remove all `--active` classes (like when new page is loaded)
 					_index.activeTouch.reset(); 
