@@ -180,23 +180,3 @@
 		}
 	};
 });
-(function (global, factory) {
-  if (typeof define === "function" && define.amd) {
-    define(["./index.js"], factory);
-  } else if (typeof exports !== "undefined") {
-    factory(require("./index.js"));
-  } else {
-    var mod = {
-      exports: {}
-    };
-    factory(global.index);
-    global.test = mod.exports;
-  }
-})(this, function (_index) {
-  "use strict";
-
-  // activeTouch.reset() // call this function every time you need to remove all `--active` classes (like when new page is loaded)
-  // activeTouch.init()	// init the touch/click listener functions
-
-  var ES6test = true;
-});
