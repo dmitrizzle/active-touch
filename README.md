@@ -1,4 +1,9 @@
-# active-touch ☝️
+# This project is dormant.
+If you understand the issue and have a lighter, less buggy solution you are more than welcome to contribute. However, at this time I find the problem isn't worth solving for me personally. Considering how much effort is required to fix something as trivial as default style behaviours on different devices.
+
+***
+
+## active-touch ☝️
 ### A solution for :active CSS problem on iOS devices
 
 There are 3 problems with how iOS treats CSS `:active` state:
